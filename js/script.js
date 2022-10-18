@@ -84,7 +84,7 @@ let play = function(){
 
         }
         let bomba = cellBomb - 1;
-        squares[bomba].innerHTML = '<i class="fa-solid fa-skull-crossbones"></i>'
+        squares[bomba].innerHTML = '<i class="fa-solid fa-skull"></i>'
         console.log(cellClick);
         score.innerHTML = 'score: '+cellClick;
 
