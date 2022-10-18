@@ -38,7 +38,7 @@ let play = function(){
         if(bombPosition.includes(num)){
             this.classList.add('bomb');
             this.removeEventListener('click', handleClick)
-            endGame();
+            endGame(num);
         }
         else{
             this.classList.add('white');
@@ -70,17 +70,24 @@ let play = function(){
     }
     gridCreate();
 
-    function endGame(){
+    function endGame(cellBomb){
         const squares = document.querySelectorAll('.square');
+        console.log(squares)
         for (let i = 0; i < squares.length; i++) {
             squares[i].removeEventListener('click', handleClick);
             const num = parseInt(squares[i].querySelector('span').innerHTML);
+            // console.log(cellBomb+'cella bomba')
             if(bombPosition.includes(num)){
                 squares[i].classList.add('bomb');
+                squares[i].innerHTML = '<i class="fa-solid fa-bomb"></i>'
             }
+
         }
+        let bomba = cellBomb - 1;
+        squares[bomba].innerHTML = '<i class="fa-solid fa-skull-crossbones"></i>'
         console.log(cellClick);
         score.innerHTML = 'score: '+cellClick;
+
     }
 }
 
