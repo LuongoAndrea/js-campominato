@@ -78,9 +78,6 @@ let play = function(){
             if(bombPosition.includes(num)){
                 squares[i].classList.add('bomb');
             }
-            else{
-                squares[i].classList.add('white');
-            }
         }
         console.log(cellClick);
         score.innerHTML = 'score: '+cellClick;
