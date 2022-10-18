@@ -48,4 +48,8 @@ main{
 }
 .white{
     background-color: var(--white);
+    color: var(--black);
+}
+.bomb{
+    background-color: rgb(145, 41, 41);
 }

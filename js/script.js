@@ -1,8 +1,9 @@
-
-
 let play = function(){
     console.log('inizio gioco:');
+    const score = document.getElementById("score");
+    score.innerHTML = ''
     const num_bomb = 16;
+    let cellClick = 0;
     const bombPosition = [];
     let cellNumber;
     const fieldGame = document.getElementById("fild-game");
@@ -23,14 +24,28 @@ let play = function(){
             break;
     }
     while(bombPosition.length < num_bomb){
-        const bomb = Math.floor((Math.random() * 100) + 1);
+        const bomb = Math.floor((Math.random() * cellNumber) + 1);
         if(!bombPosition.includes(bomb)){
             bombPosition.push(bomb)
         }
     }
     console.log(bombPosition);
-
     
+    function handleClick(){
+        console.log(this.querySelector('span').innerHTML);
+        const num = parseInt(this.querySelector('span').innerHTML);
+        console.log(num+' cliccato');
+        if(bombPosition.includes(num)){
+            this.classList.add('bomb');
+            this.removeEventListener('click', handleClick)
+            endGame();
+        }
+        else{
+            this.classList.add('white');
+            this.removeEventListener('click', handleClick)
+            cellClick++;
+        }
+    }
     function cellCreate(numCell){
         const cellPerSide = Math.sqrt(cellNumber);
         const divCell = document.createElement("div");
@@ -40,10 +55,7 @@ let play = function(){
         divCell.innerHTML = `
             <span>${numCell}</span>
         `;
-        divCell.addEventListener('click', function(){
-            this.classList.add('white');
-        } )
-        
+        divCell.addEventListener('click', handleClick)
         return divCell;
     }
     function gridCreate(){
@@ -51,13 +63,28 @@ let play = function(){
         divGrid.className = 'grid';
         for (let i = 1; i <= cellNumber; i++) {
             const cell = cellCreate(i);
-            console.log(i);
             divGrid.appendChild(cell);
         }
         
         fieldGame.appendChild(divGrid);
     }
     gridCreate();
+
+    function endGame(){
+        const squares = document.querySelectorAll('.square');
+        for (let i = 0; i < squares.length; i++) {
+            squares[i].removeEventListener('click', handleClick);
+            const num = parseInt(squares[i].querySelector('span').innerHTML);
+            if(bombPosition.includes(num)){
+                squares[i].classList.add('bomb');
+            }
+            else{
+                squares[i].classList.add('white');
+            }
+        }
+        console.log(cellClick);
+        score.innerHTML = 'score: '+cellClick;
+    }
 }
 
 let btnPlay = document.getElementById("play");
