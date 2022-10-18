@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campo Fiorito</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/function.js"></script>
+</head>
+<body>
+    <header class="d-flex justify-content-around align-items-center text-white">
+        <h3>logo</h3>
+        <div class="d-flex">
+        <select name="modalita" id="modalita">
+            <option value="1">Easy</option>
+            <option value="2">Medium</option>
+            <option value="3">Hard</option>
+        </select>
+        <button class="btn btn-secondary ms-1" id="play">Play</button>
+        </div>
+    </header>
+    <main class="">
+        <h2 class="d-flex justify-content-center align-items-center p-3">Select a level and click to play</h2>
+        <div id="fild-game" class="d-flex justify-content-center align-items-center">
+
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="./js/script.js"></script>
+</body>
+</html>
+<!-- 
+Consegna:
+
+L'utente clicca su un bottone che genererà una griglia di gioco quadrata.
+
+Ogni cella ha un numero progressivo, da 1 a 100.
+
+Ci saranno quindi 10 caselle per ognuna delle 10 righe.
+
+Quando l'utente clicca su ogni cella, la cella cliccata si colora di 
+azzurro ed emetto un messaggio in console con il numero della cella
+cliccata.
+
+Bonus:
+
+Aggiungere una select accanto al bottone di generazione, che fornisca una
+scelta tra tre diversi livelli di difficoltà:
+
+- con difficoltà 1 => 100 caselle, con un numero compreso tra 1 e 100,
+divise in 10 caselle per 10 righe;
+
+- con difficoltà 2 => 81 caselle, con un numero compreso tra 1 e 81,
+divise in 9 caselle per 9 righe;
+
+- con difficoltà 3 => 49 caselle, con un numero compreso tra 1 e 49,
+divise in 7 caselle per 7 righe;
+ -->
